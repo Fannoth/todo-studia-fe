@@ -28,9 +28,9 @@ const TodoList = () => {
 
   const fetchTasks = async () => {
     try {
-      let url = 'http://localhost:5000/api/tasks';
+      let url = 'https://be2-fannoth-fannoths-projects.vercel.app/api/tasks';
       if (filterText.length > 0) {
-        url += `?taskName=${filterText}`;
+        url += `?name=${filterText}`;
       }
       if (filterCompleted) {
         url += filterText.length > 0 ? `&completed=${filterCompleted}` : `?completed=${filterCompleted}`;
@@ -45,7 +45,7 @@ const TodoList = () => {
 
   const addTask = async () => {
     try {
-      const response = await axios.post<Task>('http://localhost:5000/api/tasks', {
+      const response = await axios.post<Task>('https://be2-fannoth-fannoths-projects.vercel.app/api/tasks', {
         task: newTask,
         completed: false,
         id: Math.random(),
@@ -65,7 +65,7 @@ const TodoList = () => {
       const taskToToggle = tasks.find(t => t.id === id);
       if (taskToToggle) {
         const updatedTask = { ...taskToToggle, completed: !taskToToggle.completed };
-        const response = await axios.put(`http://localhost:5000/api/tasks/${id}`, updatedTask);
+        const response = await axios.put(`https://be2-fannoth-fannoths-projects.vercel.app/api/tasks/${id}`, updatedTask);
         if (response.status === 200 && taskToToggle.completed === false) {
           toast.success(`Ustawiono ${taskToToggle.task} jako wykonane`)
           fetchTasks();
@@ -85,7 +85,7 @@ const TodoList = () => {
   const deleteTask = async (id: number) => {
     try {
       const taskToDelete = tasks.find(t => t.id === id);
-      const response = await axios.delete(`http://localhost:5000/api/tasks/${id}`);
+      const response = await axios.delete(`https://be2-fannoth-fannoths-projects.vercel.app/api/tasks/${id}`);
       if (response.status === 200) {
         toast.success(`Usunięto ToDo - ${taskToDelete?.task}`)
         fetchTasks();
@@ -101,7 +101,7 @@ const TodoList = () => {
     try {
       const taskToEdit = tasks.find(t => t.id === editingTaskId);
       const updatedTask = { task: editingTaskText, completed: false, id: editingTaskId };
-      const resposne = await axios.put(`http://localhost:5000/api/tasks/${editingTaskId}`, updatedTask);
+      const resposne = await axios.put(`https://be2-fannoth-fannoths-projects.vercel.app/api/tasks/${editingTaskId}`, updatedTask);
       setEditingTaskId(null);
       if (resposne.status === 200) {
         toast.success(`Zmieniono nazwę ToDo z ${taskToEdit?.task} na ${editingTaskText}`)
