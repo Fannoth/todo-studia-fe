@@ -1,0 +1,119 @@
+.taskEditing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.taskInput {
+  flex: 1;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.taskItem {
+  margin-bottom: 20px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.taskItem:hover {
+  background-color: #f0f0f0;
+}
+
+.taskContent {
+  display: flex;
+  align-items: center;
+}
+
+.customCheckbox {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 15px;
+}
+
+.checkboxInput {
+  display: none;
+}
+
+.checkboxControl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  background-color: #fff;
+  border: 2px solid #dcdcdc;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+.taskItem:hover .checkboxControl {
+  border-color: #c0c0c0;
+}
+
+.checkboxCheckmark {
+  position: absolute;
+  top: 3px;
+  left: 7px;
+  width: 8px;
+  height: 14px;
+  border: solid green;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.taskText {
+  font-size: 16px;
+  color: #333;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.taskActions {
+  display: flex;
+}
+
+.editBtn,
+.deleteBtn {
+  padding: 8px 15px;
+  font-size: 14px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.editBtn {
+  background-color: #4caf50; /* Green */
+  margin-right: 10px;
+}
+
+.deleteBtn {
+  background-color: #f44336; /* Red */
+}
+
+.editBtn:hover {
+  background-color: #45a049; /* Darker Green */
+  transform: translateY(-2px);
+}
+
+.deleteBtn:hover {
+  background-color: #d32f2f; /* Darker Red */
+  transform: translateY(-2px);
+}
